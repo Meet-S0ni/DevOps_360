@@ -121,10 +121,10 @@ resource "aws_eip" "web-eip" {
 }
 
 resource "aws_instance" "web-server-instance" {
-  ami                         = var.instance_image
-  instance_type               = var.instance_type
-  availability_zone           = var.availability_zone
-  key_name                    = module.key_pair.key_pair_name
+  ami               = var.instance_image
+  instance_type     = var.instance_type
+  availability_zone = var.availability_zone
+  key_name          = module.key_pair.key_pair_name
 
   network_interface {
     device_index         = 0 # eth0
