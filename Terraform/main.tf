@@ -1,6 +1,5 @@
-#Terraform code for aws resources 
+# Terraform code for aws resources 
 
-# 1. create vpc
 resource "aws_vpc" "main-vpc" {
   cidr_block = var.cidr_block
 
@@ -9,7 +8,6 @@ resource "aws_vpc" "main-vpc" {
   }
 }
 
-# 2. Create internet gateway 
 resource "aws_internet_gateway" "main-ig" {
   vpc_id = aws_vpc.main-vpc.id
 
@@ -17,7 +15,7 @@ resource "aws_internet_gateway" "main-ig" {
     Name = "main-ig"
   }
 }
-# 3. Create custom route table 
+ 
 resource "aws_route_table" "main-rt" {
   vpc_id = aws_vpc.main-vpc.id
 
@@ -36,7 +34,6 @@ resource "aws_route_table" "main-rt" {
   }
 }
 
-# 4. create a subnet 
 resource "aws_subnet" "main-subnet" {
   vpc_id            = aws_vpc.main-vpc.id
   cidr_block        = "10.0.1.0/24"
@@ -47,14 +44,12 @@ resource "aws_subnet" "main-subnet" {
   }
 }
 
-# 5. Associate subnet with route table
 resource "aws_route_table_association" "a" {
   subnet_id      = aws_subnet.main-subnet.id
   route_table_id = aws_route_table.main-rt.id
 
 }
 
-# 6. Create security group to allow port 22,80,443
 resource "aws_security_group" "allow_web" {
   name        = "allow_web_traffic"
   description = "Allow web inbound traffic"
@@ -66,7 +61,6 @@ resource "aws_security_group" "allow_web" {
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    # ipv6_cidr_blocks = ["::/0"]
   }
 
   ingress {
@@ -75,7 +69,6 @@ resource "aws_security_group" "allow_web" {
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    # ipv6_cidr_blocks = ["::/0"]
   }
 
   ingress {
@@ -84,7 +77,14 @@ resource "aws_security_group" "allow_web" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    # ipv6_cidr_blocks = ["::/0"]
+  }
+
+  ingress {
+    description = "Node App"
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -100,7 +100,6 @@ resource "aws_security_group" "allow_web" {
   }
 }
 
-#7. Create a network interface with an ip in the subnet that was created in step 4
 resource "aws_network_interface" "web_server_nic" {
   subnet_id       = aws_subnet.main-subnet.id
   private_ips     = [var.private_ips]
@@ -110,8 +109,6 @@ resource "aws_network_interface" "web_server_nic" {
     Name = "web-nic"
   }
 }
-
-#8. Assign an elastic ip to network interface created in step 7 
 
 resource "aws_eip" "web-eip" {
   vpc                       = true
@@ -124,9 +121,8 @@ resource "aws_eip" "web-eip" {
   }
 }
 
-# 9. create a ubuntu server and install/enable nginx
 resource "aws_instance" "web-server-instance" {
-  ami                         = var.instance_image # ap-south-1,ubuntu
+  ami                         = var.instance_image 
   instance_type               = var.instance_type
   availability_zone           = "ap-south-1a"
   key_name                    = module.key_pair.key_pair_name

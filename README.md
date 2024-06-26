@@ -25,18 +25,26 @@
     terraform init
     ```
 
-2. Validate and Format code 
+2. Format, validate and prepare plan  
     ```
-    terraform validate 
     terraform fmt
-    ```
-
-3. Prepare plan 
-    ```
+    terraform validate 
     terraform plan
     ```
 
-4. Apply code
+3. Apply code
     ```
     terraform apply 
     ```
+
+
+
+## Ansible 
+
+1. copy docker-app directory in Ansible directory 
+
+```
+ansible all -m ping -i inventory.ini
+ansible-playbook  -i inventory.ini playbook.yaml
+
+```

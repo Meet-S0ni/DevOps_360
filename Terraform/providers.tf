@@ -1,5 +1,3 @@
-# Aws Providers
-
 terraform {
   required_providers {
     aws = {
@@ -8,7 +6,6 @@ terraform {
   }
 }
 
-# Configure the AWS Provider
 provider "aws" {
   region     = var.region
   # access_key = var.access_key

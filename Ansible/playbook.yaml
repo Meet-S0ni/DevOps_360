@@ -1,11 +1,10 @@
 - name: Install Docker on ec2
-  hosts: ec2
+  hosts: remote_machine
   become: true
   tasks:
     - name: Install Docker
       yum:
         name:
-          - amazon-linux-extras
           - docker
         state: present
     - name: start docker service
@@ -18,20 +17,19 @@
         enabled: yes
     - name: Copy docker-app directory to machine
       ansible.builtin.copy:
-        src: ../docker-app
-        dest: /home/ec2-user/docker-app
-        remote_src: yes
+        src: ./docker-app/
+        dest: /home/ec2-user/docker-app/
     - name: Build Docker image
-      ansible.builtin.docker_image:
+      community.docker.docker_image:
         name: node-app
         build:
-          path: /home/ec2-user/docker-app
-        state: present
+          path: /home/ec2-user/docker-app/
+        source: build
+        push: false
     - name: Run Docker container
-      ansible.builtin.docker_container:
+      community.docker.docker_container:
         name: node-container
         image: node-app
         state: started
-        restart_policy: always
         ports:
           - "3000:3000"
