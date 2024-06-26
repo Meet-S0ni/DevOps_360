@@ -69,5 +69,4 @@ kubectl apply -f kubernetes/deployment.yaml
 ```
 ansible all -m ping -i inventory.ini
 ansible-playbook  -i inventory.ini playbook.yaml
-
 ```
