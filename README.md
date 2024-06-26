@@ -48,11 +48,6 @@
 ```
 kubectl apply -f kubernetes/deployment.yaml 
 ```
-- To check health probs use this command 
-```
-kubectl exec -it <pod-name> -- bash -c "nginx -s stop"
-```
-- you will see that pod restarts due to health probs 
 
 ## Ansible 
 
@@ -69,5 +64,3 @@ ansible all -m ping -i inventory.ini
 ansible-playbook  -i inventory.ini playbook.yaml
 
 ```
-
-5. Open URL: http://<Public-ip>:3000
