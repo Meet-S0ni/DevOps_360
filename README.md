@@ -20,31 +20,53 @@
 
 ## Execute Terraform script
 
-1. Initialize terraform code 
+1. move to Terraform directory
+    ```
+    cd Terraform 
+    ```
+2. Initialize terraform code 
     ```
     terraform init
     ```
 
-2. Format, validate and prepare plan  
+3. Format, validate and prepare plan  
     ```
     terraform fmt
     terraform validate 
     terraform plan
     ```
 
-3. Apply code
+4. Apply code
     ```
     terraform apply 
     ```
 
+# Kubernetes manifest with QOS  
 
+### Apply deployment yaml file 
+```
+kubectl apply -f kubernetes/deployment.yaml 
+```
+- To check health probs use this command 
+```
+kubectl exec -it <pod-name> -- bash -c "nginx -s stop"
+```
+- you will see that pod restarts due to health probs 
 
 ## Ansible 
 
-1. copy docker-app directory in Ansible directory 
+1. Copy public ip from Terraform/public_ip.txt file and put in inventory.ini file at ansible_host=<EC2_PUBLIC_IP>
+
+2. Copy ssh key from Terraform/public_key.pem to Ansible directory
+
+3. Copy docker-app directory in Ansible directory 
+
+4. Run this commands to execute ansible playbook
 
 ```
 ansible all -m ping -i inventory.ini
 ansible-playbook  -i inventory.ini playbook.yaml
 
 ```
+
+5. Open URL: http://<Public-ip>:3000

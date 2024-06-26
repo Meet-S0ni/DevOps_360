@@ -18,5 +18,5 @@ output "server_id" {
 
 resource "local_file" "public_key_pem" {
   content  = module.key_pair.public_key_pem
-  filename = "public_key.pub"
+  filename = "public_key.pem"
 }
