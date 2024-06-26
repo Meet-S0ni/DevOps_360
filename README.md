@@ -1,6 +1,6 @@
 # Tasks
 
-1. Prepare Lightweight Dockerfile for node app 
+1. Prepare a Lightweight Dockerfile for node app 
 2. Prepare Kubernetes deployment with qos and health probs
 2. Prepare Terraform for AWS EC2
 3. Prepare Ansible to automate deployment of docker container
@@ -27,9 +27,9 @@ git clone https://github.com/Meet-S0ni/WebClues-Task.git
 
 ## Execute Terraform script
 
-1. move to terrafrm  directory
+1. move to terraform  directory
     ```
-    cd terrafrm  
+    cd terraform  
     ```
 2. Initialize terraform code 
     ```
@@ -60,9 +60,9 @@ kubectl apply -f kubernetes/deployment.yaml
 
 1. Copy public ip from terraform /public_ip.txt file and put in inventory.ini file at ansible_host=<EC2_PUBLIC_IP>
 
-2. Copy ssh key from terrafrm /key.pem to Ansible directory
+2. Copy the ssh key from terraform /key.pem to Ansible directory
 
-3. Copy docker-app directory in Ansible directory 
+3. Copy docker-app directory into Ansible directory 
 
 4. Run this commands to execute ansible playbook
 
