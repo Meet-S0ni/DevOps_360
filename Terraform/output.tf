@@ -12,7 +12,7 @@ output "server_privet_ip" {
   value = aws_instance.web-server-instance.private_ip
 }
 
-resource "local_file" "public_key_pem" {
-  content  = module.key_pair.public_key_pem
-  filename = "public_key.pem"
+resource "local_file" "private_key_pem" {
+  content  = module.key_pair.private_key_pem
+  filename = "key.pem"
 }

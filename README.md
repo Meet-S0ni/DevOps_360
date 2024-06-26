@@ -53,7 +53,7 @@ kubectl apply -f kubernetes/deployment.yaml
 
 1. Copy public ip from terrafrm /public_ip.txt file and put in inventory.ini file at ansible_host=<EC2_PUBLIC_IP>
 
-2. Copy ssh key from terrafrm /public_key.pem to Ansible directory
+2. Copy ssh key from terrafrm /key.pem to Ansible directory
 
 3. Copy docker-app directory in Ansible directory 
 
