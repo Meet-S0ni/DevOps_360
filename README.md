@@ -1,6 +1,7 @@
 # Tasks
 
 1. Prepare Lightweight Node Dockerfile 
+2. Prepare Kubernetes deployment with qos and health probs
 2. Prepare Terraform for AWS EC2
 3. Prepare Ansible to automate docker container
 
@@ -20,9 +21,9 @@
 
 ## Execute Terraform script
 
-1. move to Terraform directory
+1. move to terrafrm  directory
     ```
-    cd Terraform 
+    cd terrafrm  
     ```
 2. Initialize terraform code 
     ```
@@ -55,9 +56,9 @@ kubectl exec -it <pod-name> -- bash -c "nginx -s stop"
 
 ## Ansible 
 
-1. Copy public ip from Terraform/public_ip.txt file and put in inventory.ini file at ansible_host=<EC2_PUBLIC_IP>
+1. Copy public ip from terrafrm /public_ip.txt file and put in inventory.ini file at ansible_host=<EC2_PUBLIC_IP>
 
-2. Copy ssh key from Terraform/public_key.pem to Ansible directory
+2. Copy ssh key from terrafrm /public_key.pem to Ansible directory
 
 3. Copy docker-app directory in Ansible directory 
 
