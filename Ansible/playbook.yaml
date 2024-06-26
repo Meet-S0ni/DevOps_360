@@ -18,7 +18,7 @@
         enabled: yes
     - name: Copy docker-app directory to machine
       ansible.builtin.copy:
-        src: ./docker-app
+        src: ../docker-app
         dest: /home/ec2-user/docker-app
         remote_src: yes
     - name: Build Docker image
