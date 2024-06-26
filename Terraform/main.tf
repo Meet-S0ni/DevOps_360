@@ -15,7 +15,7 @@ resource "aws_internet_gateway" "main-ig" {
     Name = "main-ig"
   }
 }
- 
+
 resource "aws_route_table" "main-rt" {
   vpc_id = aws_vpc.main-vpc.id
 
@@ -92,7 +92,6 @@ resource "aws_security_group" "allow_web" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
-    # ipv6_cidr_blocks = ["::/0"]
   }
 
   tags = {
@@ -111,7 +110,7 @@ resource "aws_network_interface" "web_server_nic" {
 }
 
 resource "aws_eip" "web-eip" {
-  vpc                       = true
+  domain                    = "vpc"
   network_interface         = aws_network_interface.web_server_nic.id
   associate_with_private_ip = var.private_ips
   depends_on                = [aws_internet_gateway.main-ig, aws_instance.web-server-instance]
@@ -122,11 +121,10 @@ resource "aws_eip" "web-eip" {
 }
 
 resource "aws_instance" "web-server-instance" {
-  ami                         = var.instance_image 
+  ami                         = var.instance_image
   instance_type               = var.instance_type
-  availability_zone           = "ap-south-1a"
+  availability_zone           = var.availability_zone
   key_name                    = module.key_pair.key_pair_name
-  associate_public_ip_address = true
 
   network_interface {
     device_index         = 0 # eth0
@@ -146,6 +144,8 @@ resource "aws_instance" "web-server-instance" {
   tags = {
     Name = "web-server"
   }
+
+  depends_on = [module.key_pair]
 }
 
 

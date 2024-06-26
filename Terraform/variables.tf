@@ -3,15 +3,6 @@ variable "region" {
   description = "Aws region"
 }
 
-variable "access_key" {
-  type        = string
-  description = "Aws authantication access key"
-}
-
-variable "secret_key" {
-  type        = string
-  description = "Aws authantication secret key"
-}
 
 variable "cidr_block" {
   type        = string
@@ -33,13 +24,17 @@ variable "instance_type" {
   description = "instance specifications"
 }
 
-variable "key_name" {
+variable "availability_zone" {
   type        = string
-  description = "ssh key name"
+  description = "availability_zone "
 }
 
+# variable "access_key" {
+#   type        = string
+#   description = "Aws authantication access key"
+# }
 
-
-
-
-
+# variable "secret_key" {
+#   type        = string
+#   description = "Aws authantication secret key"
+# }
