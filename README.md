@@ -42,9 +42,10 @@
     terraform apply 
     ```
 
-# Kubernetes manifest with QOS  
+## Kubernetes manifest with QOS  
 
-### Apply deployment yaml file 
+Apply deployment yaml file 
+
 ```
 kubectl apply -f kubernetes/deployment.yaml 
 ```
