@@ -4,9 +4,14 @@ variable "region" {
 }
 
 
-variable "cidr_block" {
+variable "vpc_cidr_block" {
   type        = string
-  description = "cidr block for vac"
+  description = "cidr block for vpc"
+}
+
+variable "subnet_cidr_block" {
+  type        = string
+  description = "cidr block for subnet"
 }
 
 variable "private_ips" {

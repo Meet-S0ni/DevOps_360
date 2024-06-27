@@ -1,7 +1,7 @@
 # Terraform code for aws resources 
 
 resource "aws_vpc" "main-vpc" {
-  cidr_block = var.cidr_block
+  cidr_block = var.vpc_cidr_block
 
   tags = {
     Name = "main-vpc"
@@ -36,8 +36,8 @@ resource "aws_route_table" "main-rt" {
 
 resource "aws_subnet" "main-subnet" {
   vpc_id            = aws_vpc.main-vpc.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "ap-south-1a"
+  cidr_block        = var.subnet_cidr_block
+  availability_zone = var.availability_zone
 
   tags = {
     Name = "main-subnet"
