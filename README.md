@@ -58,9 +58,9 @@ kubectl apply -f kubernetes/deployment.yaml
 
 ## Ansible 
 
-1. Copy public ip from terraform /public_ip.txt file and put in inventory.ini file at ansible_host=<EC2_PUBLIC_IP>
+1. Copy public ip from terraform/public_ip.txt file and put in inventory.ini file at ansible_host=<EC2_PUBLIC_IP>
 
-2. Copy the ssh key from terraform /key.pem to Ansible directory
+2. Copy the ssh key from terraform/key.pem to Ansible directory
 
 3. Copy docker-app directory into Ansible directory 
 
