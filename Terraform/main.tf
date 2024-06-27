@@ -137,15 +137,13 @@ resource "aws_instance" "web-server-instance" {
               sudo yum install nginx -y
               sudo systemctl start nginx
               sudo systemctl enable nginx
-              sudo bash -c 'echo Success fully installed everything > /var/www/html/index.html'
+              sudo bash -c 'echo Success fully installed nginx > /usr/share/nginx/html/index.html'
               nginx -v
               curl localhost
               EOF
   tags = {
-    Name = "web-server"
+    Name = "nginx-web-server"
   }
 
   depends_on = [module.key_pair]
 }
-
-
