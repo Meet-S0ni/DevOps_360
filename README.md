@@ -1,4 +1,4 @@
-# Tasks
+# Complete-DevOps-Package-Docker-Kubernetes-Terraform-AWS-EC2-Ansible
 
 1. Prepare a Lightweight Dockerfile for node app [Dockerfile](https://github.com/Meet-S0ni/WebClues-Task/blob/main/docker-app/Dockerfile)
 2. Prepare Kubernetes deployment with qos and health probs [deployment.yaml](https://github.com/Meet-S0ni/WebClues-Task/blob/main/kubernetes/deployment.yaml)
