@@ -1,4 +1,4 @@
-# Complete-DevOps-Package-Docker-Kubernetes-Terraform-AWS-EC2-Ansible
+# Complete DevOps Package: Docker, Kubernetes, Terraform AWS EC2, Ansible
 
 1. Lightweight Dockerfile for node app [Dockerfile](https://github.com/Meet-S0ni/WebClues-Task/blob/main/docker-app/Dockerfile)
 2. Kubernetes deployment with qos and health probs [deployment.yaml](https://github.com/Meet-S0ni/WebClues-Task/blob/main/kubernetes/deployment.yaml)
