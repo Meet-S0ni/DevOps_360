@@ -1,10 +1,10 @@
 # Complete-DevOps-Package-Docker-Kubernetes-Terraform-AWS-EC2-Ansible
 
-1. Prepare a Lightweight Dockerfile for node app [Dockerfile](https://github.com/Meet-S0ni/WebClues-Task/blob/main/docker-app/Dockerfile)
-2. Prepare Kubernetes deployment with qos and health probs [deployment.yaml](https://github.com/Meet-S0ni/WebClues-Task/blob/main/kubernetes/deployment.yaml)
-2. Prepare Terraform for AWS EC2 [Terraform](https://github.com/Meet-S0ni/WebClues-Task/tree/main/Terraform)
-3. Prepare Web server configuration on ec2 [web server config](https://github.com/Meet-S0ni/WebClues-Task/blob/f16192de6e661a5266ca2ad58a31e2941fd9b4d9/Terraform/main.tf#L134)
-4. Prepare Ansible script to automate deployment of docker container [Ansible](https://github.com/Meet-S0ni/WebClues-Task/tree/main/Ansible)
+1. Lightweight Dockerfile for node app [Dockerfile](https://github.com/Meet-S0ni/WebClues-Task/blob/main/docker-app/Dockerfile)
+2. Kubernetes deployment with qos and health probs [deployment.yaml](https://github.com/Meet-S0ni/WebClues-Task/blob/main/kubernetes/deployment.yaml)
+2. Modulerized Terraform for AWS EC2 [Terraform](https://github.com/Meet-S0ni/WebClues-Task/tree/main/Terraform)
+3. Web server configuration on ec2 [web server config](https://github.com/Meet-S0ni/WebClues-Task/blob/f16192de6e661a5266ca2ad58a31e2941fd9b4d9/Terraform/main.tf#L134)
+4. Ansible script to automate deployment of docker container [Ansible](https://github.com/Meet-S0ni/WebClues-Task/tree/main/Ansible)
 
 ####  Steps
 
